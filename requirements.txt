@@ -1,0 +1,4 @@
+Flask
+pymongo
+openai
+python-dotenv
