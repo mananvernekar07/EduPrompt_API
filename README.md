@@ -176,19 +176,13 @@ Send a single educational question to the AI.
 ### PowerShell
 
 ```powershell
-Invoke-RestMethod `
-  -Uri "http://127.0.0.1:5000/api/query" `
-  -Method Post `
-  -ContentType "application/json" `
-  -Body '{"userinput": "How much should I score in each subject to pass CA final?"}'
+(Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/query" -Method Post -ContentType "application/json" -Body '{"userinput": "How much should I score in each subject to pass CA final?"}').response
 ```
 
 ### cURL
 
 ```bash
-curl -X POST http://127.0.0.1:5000/api/query \
-  -H "Content-Type: application/json" \
-  -d '{"userinput": "How much should I score in each subject to pass CA final?"}'
+curl -s -X POST http://127.0.0.1:5000/api/query -H "Content-Type: application/json" -d '{"userinput": "How much should I score in each subject to pass CA final?"}'
 ```
 
 ### Request Body
@@ -210,19 +204,13 @@ Send multiple educational questions for asynchronous processing.
 ### PowerShell
 
 ```powershell
-Invoke-RestMethod `
-  -Uri "http://127.0.0.1:5000/api/batch-query" `
-  -Method Post `
-  -ContentType "application/json" `
-  -Body '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
+((Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/batch-query" -Method Post -ContentType "application/json" -Body '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}').responses) -join "`n`n--- NEXT RESPONSE ---`n`n"
 ```
 
 ### cURL
 
 ```bash
-curl -X POST http://127.0.0.1:5000/api/batch-query \
-  -H "Content-Type: application/json" \
-  -d '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
+curl -s -X POST http://127.0.0.1:5000/api/batch-query -H "Content-Type: application/json" -d '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
 ```
 
 ### Request Body
