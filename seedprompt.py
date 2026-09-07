@@ -10,7 +10,7 @@ prompts_collection.update_one(
         "$set": {
             "template": (
                 "You are an expert in the education domain. Provide a concise,"
-                " direct, 2-3 sentence answer to the following query without"
+                " direct answer to the following query without"
                 " unnecessary fluff: {{userinput}}"
             )
         }
