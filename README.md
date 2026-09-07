@@ -55,11 +55,57 @@ EduPrompt_API/
 ├── requirements.txt
 │   └── Python dependencies
 │
-├── .env.example
-│   └── Environment variable template
-│
-├── .gitignore
-│   └── Files excluded from Git
-│
 └── README.md
     └── Project documentation
+```
+## 📥 How to Clone & Setup
+
+1. Clone the Repository
+
+git clone [https://github.com/mananvernekar07/EduPrompt_API.git(https://github.com/mananvernekar07/EduPrompt_API.git)cd EduPrompt_API
+
+
+2. Install Dependencies
+
+pip install -r requirements.txt
+
+
+3. Configure Environment Variables
+
+$env:GROQ_API_KEY="gsk_your_actual_groq_api_key_here"
+
+
+4. Seed System Prompt (Populate MongoDB with the default system prompt configuration)
+
+python seedprompt.py
+
+
+5. Start the Server
+
+python app.py
+
+
+6. Single Query Endpoint (POST /api/query)
+
+PowerShell (Windows):
+Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/query" -Method Post -ContentType "application/json" -Body '{"userinput": "How much should I score in each subject to pass CA final?"}'
+
+cURL (Linux / macOS / Git Bash):
+curl -X POST [http://127.0.0.1:5000/api/query](http://127.0.0.1:5000/api/query) \
+     -H "Content-Type: application/json" \
+     -d '{"userinput": "How much should I score in each subject to pass CA final?"}'
+     
+
+7. Batch Query Endpoint (POST /api/batch-query)
+
+PowerShell (Windows):
+Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/batch-query" -Method Post -ContentType "application/json" -Body '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
+
+cURL (Linux / macOS / Git Bash):
+curl -X POST [http://127.0.0.1:5000/api/batch-query](http://127.0.0.1:5000/api/batch-query) \
+     -H "Content-Type: application/json" \
+     -d '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
+     
+
+8. Viewing Saved History Logs
+python fetchdata.py
