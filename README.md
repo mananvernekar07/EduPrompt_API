@@ -60,32 +60,32 @@ EduPrompt_API/
 ```
 ## 📥 How to Clone & Setup
 
-1. Clone the Repository
+- 1. Clone the Repository
 
 git clone [https://github.com/mananvernekar07/EduPrompt_API.git(https://github.com/mananvernekar07/EduPrompt_API.git)cd EduPrompt_API
 
 
-2. Install Dependencies
+- 2. Install Dependencies
 
 pip install -r requirements.txt
 
 
-3. Configure Environment Variables
+- 3. Configure Environment Variables
 
 $env:GROQ_API_KEY="gsk_your_actual_groq_api_key_here"
 
 
-4. Seed System Prompt (Populate MongoDB with the default system prompt configuration)
+- 4. Seed System Prompt (Populate MongoDB with the default system prompt configuration)
 
 python seedprompt.py
 
 
-5. Start the Server
+- 5. Start the Server
 
 python app.py
 
 
-6. Single Query Endpoint (POST /api/query)
+- 6. Single Query Endpoint (POST /api/query)
 
 PowerShell (Windows):
 Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/query" -Method Post -ContentType "application/json" -Body '{"userinput": "How much should I score in each subject to pass CA final?"}'
@@ -96,7 +96,7 @@ curl -X POST [http://127.0.0.1:5000/api/query](http://127.0.0.1:5000/api/query) 
      -d '{"userinput": "How much should I score in each subject to pass CA final?"}'
      
 
-7. Batch Query Endpoint (POST /api/batch-query)
+- 7. Batch Query Endpoint (POST /api/batch-query)
 
 PowerShell (Windows):
 Invoke-RestMethod -Uri "http://127.0.0.1:5000/api/batch-query" -Method Post -ContentType "application/json" -Body '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
@@ -107,5 +107,5 @@ curl -X POST [http://127.0.0.1:5000/api/batch-query](http://127.0.0.1:5000/api/b
      -d '{"userinputs": ["What is Bloom Taxonomy?", "Explain formative vs summative assessment."]}'
      
 
-8. Viewing Saved History Logs
+- 8. Viewing Saved History Logs
 python fetchdata.py
